@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .single-items {
+      width: 250px;
+      padding: 30px;
+      border: 1px gray solid;
+      float: left;
+      margin-right: 30px;
+    }
+  </style>
+  <body>
+    <div id="items">// здесь будут товары</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $("document").ready(function () {
+        loadItems();
+      });
+
+      function loadItems() {
+        $.getJSON("main.json", function (data) {
+          console.log(data);
+          let out = "";
+          for (let key in data) {
+            out += '<div class="single-items">';
+            out += "<h3>" + data[key]["name"] + "</h3>";
+            out += "<p>Цена: " + data[key]["cost"] + "</p>";
+            out += '<img src="' + data[key].image + '">';
+            out += "<button>Купить</button>";
+            out += "</div>";
+          }
+          $("#items").html(out);
+        });
+      }
+    </script>
+  </body>
+</html>
