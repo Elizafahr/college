@@ -1,0 +1,1 @@
+Полный видеокурс по разработке темы WordPress можно изучить здесь https://www.youtube.com/playlist?list=PL3LQJkGQtzc6Nwz67GGrMdqxim1c0H5DC
