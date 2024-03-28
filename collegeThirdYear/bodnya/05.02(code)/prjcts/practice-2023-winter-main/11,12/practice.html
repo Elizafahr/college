@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Выбор элементов</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var element1 = $("#element1");
+      // Выбор элемента по классу
+      var element2 = $(".element2");
+      // Выбор элемента по атрибуту
+      var element3 = $("[attribute='value']");
+      // Выбор элемента по тегу
+      var element4 = $("tagName");
+      // Выбор первого элемента внутри другого элемента
+      var element5 = $("#parentElement").find(".childElement:first");
+      // Выбор последнего элемента внутри другого элемента
+      var element6 = $("#parentElement").find(".childElement:last");
+      // Выбор всех элементов внутри другого элемента
+      var element7 = $("#parentElement .childElement");    
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Пример элементов для выбора -->
+  
+  <div id="element1">Выбор элемента по ID - Element 1</div>
+  <div class="element2"> Выбор элемента по классу - Element 2</div>
+  <div attribute="value">Выбор элемента по атрибуту - Element 3</div>
+  <div>Выбор элемента по тегу- tagName</div>
+  <div id="parentElement">
+    <div class="childElement">Выбор первого элемента внутри другого элемента - Child 1</div>
+    <div class="childElement"> Выбор последнего элемента внутри другого элемента - Child 3</div>
+    <div class="childElement">Выбор по родительскому элементу и классу - Child 2</div>
+  </div>
+</body>
+
+</html>

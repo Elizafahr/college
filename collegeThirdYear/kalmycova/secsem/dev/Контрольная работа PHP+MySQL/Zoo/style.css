@@ -112,3 +112,11 @@ body{
 	padding:0;
 	border:0;
 }
+
+.regestration {
+width: 100%;
+}
+.regestration  form{
+	width: 100%;
+	display: flex;
+	}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <title>Практическое задание 4.6</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        var a = 'Щелчок';
+        window.onload = function () {
+            $('#levelOne').one('click', { value: a }, function (event) {
+                $('#levelThree').text(event.data.value);
+            });
+            $('#oFF').on('click', function () {
+
+                $('#levelOne').off('click')
+
+                $('#oFF').val('Событие click удалено');
+            });
+        } 
+    </script>
+    <style type="text/css">
+        #levelOne {
+            padding: 25px;
+            height: 200px;
+            width: 200px;
+            background-color: #C30;
+        }
+
+        #levelTwo {
+            padding: 25px;
+            height: 150px;
+            width: 150px;
+            background-color: #39C;
+        }
+
+        #levelThree {
+            padding: 25px;
+            height: 100px;
+            width: 100px;
+            background-color: #396;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="levelOne">
+
+        <div id="levelTwo">
+
+            <div id="levelThree">
+                <a href='#' title="Ссылка">Ссылка</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <input type="button" value="Удалить событие click" id='oFF'>
+</body>
+
+</html>

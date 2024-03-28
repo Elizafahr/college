@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="windows-1251">
+  <title>Выбор элементов по классу</title>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      $("button").css('border', '2px solid red');
+      $("input[type='submit']").css('border', '2px solid green');
+      $("input[type='reset']").css('border', '2px solid yellow');
+    } 
+  </script>
+</head>
+
+<body>
+  <input type="button" value="Кнопка">
+  <input type="submit" value="Кнопка отправить">
+  <input type="reset" value="Кнопка очистить">
+</body>
+
+</html>

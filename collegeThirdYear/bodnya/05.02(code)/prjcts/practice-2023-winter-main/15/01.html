@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="windows‐1251">
+    <title>Задание 6_01. Появление и скрытие элемента</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            $('#speedily').click(function () {
+                $(".hiddenSpeed").hide();
+            });
+            $('#speedily').dblclick(function () {
+                $(".hiddenSpeed").show();
+            });
+
+            $('#duration').click(function () {
+                $(".hiddenDuration").hide(400);
+            });
+            $('#duration').dblclick(function () {
+                $(".hiddenDuration").show("slow", "linear", function () {
+                    $(this).css("background-color", "#B6DADA")
+                });
+            });
+        } 
+    </script>
+    <style type="text/css">
+        #speedily,
+        .hiddenSpeed,
+        #duration,
+        .hiddenDuration {
+            padding: 25px;
+            margin: 10px;
+            border: 2px solid #0C6;
+            background-color: #FF9831;
+            width: 200px;
+        }
+
+        #cont {
+            padding: 25px;
+            margin: 10px;
+            background-color: #B6DADA;
+            width: 270px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='cont'> Без анимации
+        <div id='speedily'>
+            Скрыть быстро ‐ один щелчок<br>
+            Показать быстро ‐ два щелчка
+        </div>
+        <div class='hiddenSpeed'>
+            Скрываемый/показываемый <br>
+            элемент
+        </div>
+    </div>
+    <div id='cont'> С анимацией
+        <div id='duration'>
+            Скрыть ‐ один щелчок<br>
+            Показать ‐ два щелчка
+        </div>
+        <div class='hiddenDuration'>
+            Скрываемый/показываемый <br>
+            элемент
+        </div>
+    </div>
+</body>
+
+</html>

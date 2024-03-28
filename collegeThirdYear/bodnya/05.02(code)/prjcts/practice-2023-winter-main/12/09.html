@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Практическое задание 3.9 замена и клонирование элемента</title> 
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+           $('div:last').replaceWith('<li>список</li>');
+           $('<li>список</li>').replaceAll('div:first');
+           $('div:eq(1)').clone().appendTo('body');
+        }
+    </script>
+    <style type="text/css">
+        div{
+            padding: 25px;
+            margin: 10px;
+            float: left;
+            background-color: red;
+        }
+        li{
+            padding: 25px;
+            margin: 10px;
+            float: left;
+            background-color: #3CC;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+ <div><a href="#" title="первая ссылка">1</a></div>
+ <div><a href="#" title="вторая ссылка">2</a></div>
+ <div>3</div>
+ <div class="blue">4</div>
+ <div>5</div>
+</body>
+</html>

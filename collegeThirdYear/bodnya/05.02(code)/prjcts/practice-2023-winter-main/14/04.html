@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+
+            $("div").css("border", "2px solid green")
+                .filter(".filt")
+                .css("border", "2px solid yellow");
+
+            $("div").click(function () {
+
+                if ($(this).is(".filt")) {
+                    alert("div имеет класс filt");
+                } else {
+                    alert("div не имеет класс filt");
+                }
+            });
+
+            $("div").filter(".filt").slice(1).css("background-color", "green")
+
+        } 
+    </script>
+
+    <style type="text/css">
+        div {
+            padding: 25px;
+            margin: 10px;
+            float: left;
+            background-color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div></div>
+    <div class="filt"></div>
+    <div class="filt"></div>
+    <div></div>
+    <div class="filt"></div>
+    <div></div>
+</body>
+
+</html>

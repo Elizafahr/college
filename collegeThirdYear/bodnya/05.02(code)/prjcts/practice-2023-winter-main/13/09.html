@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <title>Практическое задание 4.9 События мыши</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var mouseover_o = 0;
+            var mouseenter_o = 0;
+            $("#outer").mouseover(function () {
+                a = ++mouseover_o
+                $(".outmouseover", this).text("Событие mouseover " + a);
+            }).mouseenter(function () {
+                b = ++mouseenter_o
+                $(".outmouseenter", this).text("Событие mouseenter " + b);
+            });
+
+            var mouseover_i = 0;
+            var mouseenter_i = 0;
+            $("#inner").mouseleave(function () {
+                a = ++mouseover_i
+                $(".inmouseover", this).text("Событие mouseleave " + a);
+            }).mouseout(function () {
+                b = ++mouseenter_i
+                $(".inmouseenter", this).text("Событие mouseout " + b);
+            });
+        }
+    </script>
+    <style type="text/css">
+        #outer {
+            margin: 40px;
+            height: 250px;
+            width: 400px;
+            border: 3px solid #EF7F1A;
+            font-size: 16px;
+        }
+
+        #inner {
+            height: 150px;
+            width: 300px;
+            margin-left: 30px;
+            border: 3px solid #61A375;
+            font-size: 16px;
+        }
+
+        span {
+            display: block;
+            padding: 10px;
+        }
+
+        div {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <span class='outmouseover'></span>
+        <span class='outmouseenter'></span>
+        <div id="inner">
+            <span class='inmouseover'></span>
+            <span class='inmouseenter'></span>
+        </div>
+    </div>
+    <div id="eventText"></div>
+</body>
+
+</html>

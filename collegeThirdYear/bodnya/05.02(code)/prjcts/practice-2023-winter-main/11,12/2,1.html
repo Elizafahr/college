@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.1</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="jquery-3.7.1.min.js"></script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            $('body *').css('border', '2px solid green');
+            $('.header').css('background-color', 'red');
+            $('.header.logo').css('color', 'white').css('font-weight', 'bold');
+        }
+    </script>
+    <style type="text/css">
+        div {
+            padding: 25px;
+            margin: 10px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='header'>1</div>
+    <div class='header logo'>2</div>
+    <div>3</div>
+    <div class='header'>4</div>
+    <div>5</div>
+</body>
+
+</html>

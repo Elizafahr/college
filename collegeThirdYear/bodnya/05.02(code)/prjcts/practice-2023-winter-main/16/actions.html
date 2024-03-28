@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Events Tasks</title>
+ </head>
+ <style>
+  body {
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .btns{
+    display:flex;
+    gap: 15px;
+  }
+  button{
+    max-width: 150px;
+    padding: 5px;
+    background-color: white;
+  }
+   
+  
+  form {
+    width: 300px;
+   }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  #movableElement {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin-top: 20px;
+  }
+  
+  #moveLeftButton,
+  #moveRightButton,
+  #openModalButton {
+    display: block;
+    margin-top: 20px;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 20% auto;
+    padding: 20px;
+    width: 60%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+  }
+ </style>
+<body>
+  <h2>jQuery события</h2>
+
+  <button id="colorButton">Изменить фон</button>
+
+  <form>
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <button id="submitButton" type="submit">Submit</button>
+  </form>
+
+  <div>
+    <div id="movableElement"></div>
+
+ <div class="btns">
+  <button id="moveLeftButton">Влево</button>
+  <button id="moveRightButton">Вправо</button>
+ </div>
+  </div>
+
+  <button id="openModalButton">Модальное окно</button>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2> Title</h2>
+      <p> content </p>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script >
+ //  1
+$('#colorButton').click(function() {
+  $('body').css('background-color', 'yellow');
+});
+
+//  2
+$('#submitButton').click(function(event) {
+  event.preventDefault();
+  var name = $('#name').val();
+  var email = $('#email').val();
+
+  if (name === '' || email === '') {
+    alert('Please fill in all fields');
+  } else {
+    $('form').submit();
+  }
+});
+
+//  3
+$('#moveLeftButton').click(function() {
+  $('#movableElement').animate({marginLeft: '-=200px'}, 500);
+});
+
+$('#moveRightButton').click(function() {
+  $('#movableElement').animate({marginLeft: '+=200px'}, 500);
+});
+
+//  4
+$(document).mousemove(function(event) {
+  var x = event.pageX;
+  var y = event.pageY;
+  console.log('x: ' + x + ', y: ' + y);
+});
+
+//  5
+$('#openModalButton').click(function() {
+  $('#modal').fadeIn();
+});
+
+$('.close').click(function() {
+  $('#modal').fadeOut();
+});
+
+$(document).click(function(event) {
+  if (event.target == $('#modal')[0]) {
+    $('#modal').fadeOut();
+  }
+});
+  </script>
+</body>
+</html>
+
+ 
+

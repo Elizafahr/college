@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Практическое задание 3.3 Добавление класса к элементу</title> 
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            /*Определение высоты элемента*/ 
+            alert('высота элемента: '+$("#header").height());
+            $('#header').height('40');
+            alert('высота эл-а с внутренними полями: '+$(".logo").innerHeight());
+            alert('высота эл-а с внутренними полями и границами: '+$(".header").outerHeight());
+            alert('высота эл-а с внутренними полями, границами и отступами: '+$(".header").outerHeight(true));
+            /*Определение ширины элемента*/ 
+            alert('ширина элемента: '+$("#header").width());
+            $('#header').width('40');
+            alert('ширина эл-а с внутренними полями: '+$(".logo").innerWidth());
+            alert('ширина эл-а с внутренними полями и границами: '+$(".header").outerWidth());
+            alert('ширина эл-а с внутренними полями, границами и отступами: '+$(".header").outerWidth(true));
+        }
+    </script>
+    <style type="text/css">
+        div
+        {
+            padding: 25px;
+            margin: 10px;
+            border:2px solid #0C6;
+            float: left;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+  <div id="header">1</div>
+  <div id="logo">2</div>
+  <div>3</div>
+  <div class="header">4</div>
+  <div>5</div>
+</body>
+</html>

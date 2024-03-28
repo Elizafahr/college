@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Rotation</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.rotate/2.3/jquery.rotate.min.js"></script>
+  <style>
+    .some {
+        transition: transform 0.3s ease;
+      }
+      #box{
+        width: 250px;
+        height: 200px;
+        background-color: red;
+        
+     }
+      .rotated {
+        transform: rotate(90deg);
+      }
+  </style>
+</head>
+<body>
+    <div id="box"><div class="some">Элемент для поворота</div>
+ </div>
+
+  <script>
+    $(document).ready(function() {
+        $('#box').hover(function() {
+          $('.some').addClass('rotated');
+        }, function() {
+          $('.some').removeClass('rotated');
+        });
+      });
+  </script>
+</body>
+</html>

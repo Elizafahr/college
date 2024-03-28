@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <title>Задание 4.12 События клавиатуры</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            $('input').keypress(function (ev) {
+                alert("Вы нажали клавишу " + ev.which);
+            })
+            $(document).keydown(function (ev) {
+                alert("Вы нажали клавишу " + ev.which);
+            })
+            $(document).keyup(function (ev) {
+                alert("Вы отпустили клавишу " + ev.which);
+            })
+        } 
+    </script>
+    <style type="text/css">
+        div {
+            padding: 25px;
+            margin: 25px;
+            border: 2px solid #0C6;
+            float: left;
+            background-color: #FF9831;
+        }
+    </style>
+</head>
+
+<body>
+    <input type='text'>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="windows-1251">
+  <title>Выбор элементов по классу</title>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      $(".one :contains('Ноль(0)')").css('border', '2px solid red');
+      $(".one :not(:contains('Ноль(0)'))").css('border', '2px solid green');
+      $(".two :parent").css('background-color', 'red');
+      $(".two :empty").css('background-color', 'green');
+      $(".two :has(i)").css('border', '2px solid green');
+    } 
+  </script>
+  <style type="text/css">
+    div span {
+      padding: 25px;
+      margin: 10px;
+      float: left;
+      display: block;
+    }
+
+    .two {
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='one'>
+    <span>Ноль(0)</span><span>Один</span><span>Два</span><span>Три</span><span>Четыре</span>
+  </div>
+  <div class='two'>
+    <span>Пять</span><span><i></i></span><span></span><span>Восемь</span><span>Девять</span>
+  </div>
+</body>
+
+</html>

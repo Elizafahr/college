@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="windows-1251">
+<title>Выбор элементов по классу</title>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+
+window.onload=function()
+
+{
+
+  $("a[title='Яндекс почта']").css('background-color','green').css('color','white')
+
+  $("body a[title!='Яндекс почта']").css('background-color','#7CBEBE')
+
+  $("a[title$='почта']").css('text-decoration','none').css('font-weight','bold')
+
+}
+</script>
+<style type="text/css">
+a
+{
+
+display:block;padding:5px;margin:10px;  float:left; width:200px;
+}
+</style>
+</head>
+<body>
+
+<a href="www.уаndех.ru" title="Яндекс почта">Яндекс</a>
+
+<a href="http://www.google.ru/" title="Gооgle почта">Gооgle</a>
+
+<a href="http://www.mail.ru/" title="Mаil почта">Mаil</a>
+
+<a href="http://www.yahoo.com/" title="Yahoo почта">Yahoo</a>
+</body>
+</html>

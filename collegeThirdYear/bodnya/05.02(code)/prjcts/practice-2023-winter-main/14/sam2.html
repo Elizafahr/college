@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+
+            $("#children").click(function () {
+                var $a = $(".one").children();
+                alert($a.text());
+            })
+
+            $("#contents").click(function () {
+                var $a = $(".one").contents();
+                alert($a.text());
+            })
+
+            $("#jQ").click(function() {
+                $('.jQ i').each(function() {
+                   $(this).replaceWith('<strong>' + $(this).html() + '</strong>');
+                });
+             });
+        } 
+    </script>
+
+    <style type="text/css">
+        div {
+            padding: 25px;
+            margin: 10px;
+            background-color: red;
+            width: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one">
+        Текстовый узел 1
+        <p>Текстовый узел 2</p>
+        Текстовый узел 3
+    </div>
+
+    <input type="button" id='children' value="Метод children()">
+    <input type="button" id='contents' value="Метод contents()">
+
+    <p class='jQ'>
+        <i>jQuеry</i> — библиотека <i>JаvаSсript</i>, фокусирующаяся на
+        взаимодействии <i>JаvаSсript</i> и <i>HTML</i>. Библиотека <i>jQuеry</i>
+        помогает легко получать доступ к любому элементу <i>DОM</i>, обращаться к
+        атрибутам и содержимому элементов <i>DОM</i>, манипулировать ими. Также
+        библиотека <i>jQuеry</i> предоставляет удобный АPI по работе с
+        <i>АJАX</i>.
+    </p>
+
+    <input type="button" id='jQ' value="Заменить курсив полужирным начертанием">
+
+</body>
+
+</html>

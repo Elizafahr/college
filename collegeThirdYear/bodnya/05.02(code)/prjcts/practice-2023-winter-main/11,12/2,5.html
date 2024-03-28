@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="windows-1251">
+  <title>Выбор элементов по классу</title>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      $("[type=checkbox][name!=male]").attr("checked", "checked");
+    } 
+  </script>
+  <style type="text/css">
+    input[type=checkbox] {
+      display: block;
+      padding: 5px;
+      margin: 10px;
+      float: left;
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <label><input type="checkbox" name="male">Мужской</label>
+  <br>
+  <label><input type="checkbox" name="female">Женский</label>
+  <br>
+  <label><input type="checkbox" name="unknown"> Не указывать</label>
+  <br>
+</body>
+
+</html>

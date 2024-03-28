@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <title>Практическое задание 5.1 Поиск родительских элементов</title>
+    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+
+            $("#closest").click(function () {
+                $("#levelThree").closest("div").css("background-color", "yellow");
+            })
+
+            $("#parents").click(function () {
+                $("#levelThree").parents("div").css("background-color", "red");
+            })
+
+        } 
+    </script>
+
+    <style type="text/css">
+        #levelOne {
+            padding: 25px;
+            height: 200px;
+            width: 200px;
+            background-color: #C30;
+        }
+
+        #levelTwo {
+            padding: 25px;
+            height: 150px;
+            width: 150px;
+            background-color: #39C;
+        }
+
+        #levelThree {
+            padding: 25px;
+            height: 100px;
+            width: 100px;
+            background-color: #396;
+            font-size: 20px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="levelOne">
+
+        <div id="levelTwo">
+
+            <span id="levelThree">
+                <a href='#' title="Ссылка">Ссылка</a>
+            </span>
+
+        </div>
+    </div>
+
+    <input type="button" id='closest' value="Метод closest()">
+    <input type="button" id='parents' value="Метод parents()">
+</body>
+
+</html>

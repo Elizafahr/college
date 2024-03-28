@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>liga-bank</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style/index.css">
+  <link rel="stylesheet" href="style/calk.css">
+  <link rel="stylesheet" href="style/modal.css">
+
+</head>
+
+<body>
+  <div class="overlay visually-hidden" id="overlay"></div>
+
+  <div class="header">
+
+
+
+    <div class="header-nav">
+      <div class="container">
+         <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" id="burger" for="menu__toggle">
+          <span>
+            <svg class="ham hamRotate ham1" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+              <path class="line top"
+                d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+              <path class="line middle" d="m 30,50 h 40" />
+              <path class="line bottom"
+                d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+            </svg>
+          </span>
+        </label>
+
+        <ul class="menu__box">
+          <li class="manu-item">
+            <a href="#tab-container"  class="menu_box_item">Услуги</a>
+          </li>
+          <li class="manu-item">
+            <a href="#calc" class="menu_box_item">Рассчитать кредит</a>
+          </li>
+          <li class="manu-item">
+            <a href="#departments" class="menu_box_item">Контакты</a>
+          </li>
+          <li class="manu-item">
+            <a href="#" class="menu_box_item">Задать вопрос</a>
+          </li>
+        </ul>
+        <div class="logo">
+          <img src="images/svg/logo.svg" alt="logo">
+        </div>
+
+        <div class="menu-btns">
+          <div class="menu-item">
+            <a href="#tab-container" class="nav">Услуги</a>
+          </div>
+          <div class="menu-item">
+            <a href="#calc" class="nav">Рассчитать кредит</a>
+          </div>
+          <div class="menu-item">
+            <a href="#departments" class="nav">Контакты</a>
+          </div>
+          <div class="menu-item">
+            <a href="#" class="nav">Задать вопрос</a>
+          </div>
+        </div>
+        <div class="log-in-btn" id="enter-cabinet">
+          <a href="#">
+            <!-- <img src="images/svg/mobile.svg" alt="" srcset=""> -->
+            <img src="images/login.png" alt="logIn" style="height: 20px;">
+            <span id="log-in-text"> Войти в интернет банк</span>
+          </a>
+        </div>
+
+       
+      </div>
+    </div>
+
+    <div class="header-content">
+      <div class="header-content">
+        <swiper-container class="mySwiper " init="false">
+            <swiper-slide id="first">
+                <div class="slider-block container">
+                    <div class="slider-block-left ">
+                        <h1>Лига-Банк</h1>
+                        <p class="subtitle">Всегда рядом</p>
+                        <div class="btn blue-btn">
+                            Узнать подробнее
+                        </div>
+                    </div>
+                </div>
+            </swiper-slide>
+            <swiper-slide  id="second">
+                <div class="slider-block container">
+                    <div class="slider-block-left">
+                        <h1>Лига-Банк</h1>
+                        <p class="subtitle">Всегда рядом</p>
+                        <div class="btn blue-btn">
+                            Узнать подробнее
+                        </div>
+                    </div>
+                </div>
+            </swiper-slide>
+            <swiper-slide  id="third">
+                <div class="slider-block  container">
+                    <div class="slider-block-left">
+                        <h1>Лига-Банк</h1>
+                        <p class="subtitle">Всегда рядом</p>
+                        <div class="btn blue-btn">
+                            Узнать подробнее
+                        </div>
+                    </div>
+                </div>
+            </swiper-slide>
+        </swiper-container>
+
+
+    </div>
+       
+  </div>
+  <!-- Модальное окно -->
+  <div class="modal visually-hidden" id="modal">
+
+    <div class="modal__wrap">
+      <!-- Лого -->
+      <div class="modal__logo">
+        <a class="logo" href="#">
+          <svg width="30" height="27">
+            <use xlink:href="#icon-logo"></use>
+          </svg>
+          <img src="images/svg/logo.svg" alt="" srcset="">
+          <span>интернет-банк</span>
+        </a>
+      </div>
+
+      <div class="modal__close" id="modal-close">
+        <img src="images/svg/close.svg" alt="" srcset="">
+      </div>
+    </div>
+
+    <div class="modal__form">
+      <form action="#" id="modal-form">
+        <label for="login">Логин</label>
+        <input id="login" type="text" required="">
+
+        <label for="password">Пароль</label>
+        <input id="password" type="password" required="">
+        <!-- Иконка -->
+        <svg width="22" height="12" id="show-password">
+          <use xlink:href="#icon-view"></use>
+        </svg>
+        <button class="btn modal__btn" type="submit">Войти</button>
+
+        <a href="#">Забыли пароль?</a>
+
+      </form>
+    </div>
+  </div>
+  <div class="tab-container" id="tab-container">
+    <div class="container">
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Vklad')" id="defaultOpen">
+          <img src="images/svg/icon-blue-vault.svg" alt="icon-blue-vault" srcset="">
+          Вклады
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Credit')">
+          <img src="images/svg/icon-blue-cards.svg" alt="icon-blue-vault" srcset="">
+          Кредиты
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'strahovanie')">
+          <img src="images/svg/icon-blue-security.svg" alt="icon-blue-vault" srcset="">
+          Страхование
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'online')">
+          <img src="images/svg/icon-blue-phone.svg" alt="icon-blue-vault" srcset="">
+          Онлайн-Сервисы
+        </button>
+      </div>
+
+      <div id="Vklad" class="tabcontent">
+        <div class="tab-content-block">
+          <div class="left-area-tab-content">
+            <h4>Вклады в Лига-Банк -выгодная инвестиция в свое будующее</h4>
+            <ul>
+              <li>Проценты по вкладам до 7%</li>
+              <li>Разнообразные условия</li>
+              <li>Возможность ежемесячной капитализации или вывод процентов на банковскую карту</li>
+            </ul>
+            <div class="btn blue-btn">
+              Узнать подробнее
+            </div>
+          </div>
+          <img src="images/content/tab-piggybank-desctop@2x.webp" alt="">
+
+        </div>
+      </div>
+
+      <div id="Credit" class="tabcontent">
+        <div class="tab-content-block">
+          <div class="left-area-tab-content">
+            <h4>Лига Банк выдает кредиты под любые цели</h4>
+            <ul>
+              <li>Ипотечный кредит </li>
+              <li>Автокредит</li>
+              <li>Потребительский кредит</li>
+            </ul>
+            <!-- <div class="btn blue-btn">
+                            Узнать подробнее
+                        </div> -->
+            <p>Рассчитайте ежемесячный платеж и ставку по кредиту воспользовавшись нашим <b><a href="#calc"
+                  style="color: black;">кредитным калькулятором</a></b></p>
+          </div>
+          <img src="images/content/tab-car-desctop@1x.webp" alt="">
+
+        </div>
+      </div>
+
+      <div id="strahovanie" class="tabcontent">
+        <div class="tab-content-block">
+          <div class="left-area-tab-content">
+            <h4>Лига Страхование — застрахуем все что захотите</h4>
+            <ul>
+              <li>Автомобильное страхование</li>
+              <li>Страхование жизни и здоровья</li>
+              <li>Страхование недвижимости</li>
+            </ul>
+            <div class="btn blue-btn">
+              Узнать подробнее
+            </div>
+          </div>
+          <img src="images/content/tab-padlock-desctop@1x.webp" alt="">
+
+        </div>
+      </div>
+      <div id="online" class="tabcontent">
+        <div class="tab-content-block">
+          <div class="left-area-tab-content">
+            <h4>Лига Банк — это огромное количество онлайн-сервисов для вашего удобства</h4>
+            <ul>
+              <li>Мобильный банк, который всегда под рукой</li>
+              <li>Приложение Лига-проездной позволит вам оплачивать билеты по всему миру</li>
+            </ul>
+            <div class="btn blue-btn">
+              Узнать подробнее
+            </div>
+          </div>
+          <img src="images/content/tab-phone-desctop@1x.webp" alt="">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container calc " id="calc">
+    <h2>Кредитный калькулятор</h2>
+    <div class="calc__flex" id="calc__flex">
+      <!-- Шаги калькулятора -->
+      <div class="calc__step">
+
+
+        <!-- Шаг 1 -->
+        <div class="calc__step-target">
+          <h3>Шаг 1. Цель кредита</h3>
+          <div class="dropdown">
+            <span>Выберите цель кредита</span>
+            <input type="hidden" id="dropdown-input">
+            <ul class="visually-hidden dropdown__menu">
+              <li id="credit-realty">Ипотечное кредитование</li>
+              <li id="credit-auto">Автомобильное кредитование</li>
+              <li id="credit-user">Потребительский кредит</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Шаг 2 -->
+        <div class="calc__step-parametrs visually-hidden" id="calc-step2">
+          <h3>Шаг 2. Введите параметры кредита</h3>
+
+          <div class="calc__step-parametrs-wrap">
+            <p id="calc-title"></p>
+            <div class="calc__step-parametrs-input">
+              <button class="calc__step-parametrs-minus" id="calc-minus">&minus;</button>
+              <button class="calc__step-parametrs-plus" id="calc-plus">&plus;</button>
+              <input type="number" id="calc-realty" placeholder="2 000 000 рублей">
+            </div>
+            <span id="calc-realty-error"></span>
+            <span id="calc-cost"></span>
+          </div>
+
+          <div class="calc__firstpay-wrap" id="calc-firstpay-wrap">
+            <p>Первоначальный взнос</p>
+            <input type="number" id="calc-firstpay" placeholder="200 000 рублей">
+            <input type="range" id="calc-firstpay-range">
+            <span id="calc-firstpay-value"></span>
+            <span>%</span>
+          </div>
+
+          <div class="calc__step-date">
+            <p>Срок кредитования</p>
+            <input id="calc-date" type="text" placeholder="5 лет">
+            <input id="calc-date-range" type="range">
+            <div class="calc__step-date-value">
+              <span id="calc-date-first">лет</span>
+              <span id="calc-date-last">30лет</span>
+            </div>
+
+          </div>
+
+          <div class="calc__step-checkbox">
+            <input type="checkbox" id="calc-extra-capital">
+            <label for="calc-extra-capital">Использовать материнский капитал</label>
+          </div>
+          <div class="calc__step-checkbox">
+            <input type="checkbox" id="calc-extra-kacko">
+            <label for="calc-extra-kacko">Оформить КАСКО в нашем банке</label>
+          </div>
+          <div class="calc__step-checkbox">
+            <input type="checkbox" id="calc-extra-life">
+            <label for="calc-extra-life">Оформить Страхование жизни в нашем банке</label>
+          </div>
+          <div class="calc__step-checkbox">
+            <input type="checkbox" id="calc-extra-project">
+            <label for="calc-extra-project">Участник зарплатного проекта нашего банка</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Наше предложение SUCCESS-->
+      <div class="calc__offer-success visually-hidden" id="offer-success">
+        <h3>Наше предложение</h3>
+
+        <div class="calc__offer-wrap">
+          <div class="calc__offer-item">
+            <p id="calc-offer-sum"> </p>
+            <span id="offer-success-text">Сумма платежа</span>
+          </div>
+
+          <div class="calc__offer-item">
+            <p id="calc-offer-proc"> </p>
+            <span>Процентная ставка</span>
+          </div>
+
+          <div class="calc__offer-item">
+            <p id="calc-offer-monthpay"></p>
+            <span>Ежемесячный платеж</span>
+          </div>
+
+          <div class="calc__offer-item">
+            <p id="calc-offer-monthprofit"></p>
+            <span>Необходимый доход</span>
+          </div>
+        </div>
+
+        <button class="btn calc__offer-btn" id="offer-btn">Оформить заявку</button>
+      </div>
+
+      <!-- Наше предложение FAILED-->
+      <div class="calc__offer-failed  visually-hidden" id="offer-failed">
+        <p id="offer-failed-text"></p>
+        <span>Попробуйте использовать другие параметры для расчета</span>
+      </div>
+    </div>
+
+    <!-- Шаг 3 -->
+    <div class="calc__request  visually-hidden" id="request">
+      <h3>Шаг 3. Оформление заявки</h3>
+
+      <div class="calc__request-wrap" id="request-wrap"></div>
+
+      <!-- Форма для обратной связи -->
+      <div class="calc__request-form">
+        <form action="#" id="request-form">
+          <label for="name"></label>
+          <input id="name" type="text" placeholder="ФИО" required="">
+
+          <label for="phone"></label>
+          <input id="phone" type="tel" placeholder="Телефон" required="">
+
+          <label for="email"></label>
+          <input id="email" type="email" placeholder="E-mail" required="">
+          <button class="btn calc__request-btn" id="request-btn" type="submit">Отправить</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Спасибо за обращение -->
+    <div class="calc__overlay visually-hidden" id="offer-overlay">
+      <div class="calc__overlay-close" id="close-overlay">
+        <img src="/images/svg/close.svg" alt="" srcset="">
+      </div>
+      <p>Спасибо за обращение в наш банк.</p>
+      <span>Наш менеджер скоро свяжется с вами по указанному номеру телефона.</span>
+    </div>
+  </div>
+  <!-- Карта -->
+  <section class="departments main-content__departments container" id="departments">
+    <h2 class="departments__title">Отделения Лига Банка</h2>
+    <div class="form-departments departments__form">
+      <form id="departments-form">
+        <div class="form-departments__form-field">
+          <input type="checkbox" id="department-russia" name="department" checked>
+          <label for="department-russia" tabindex="0">Россия</label>
+        </div>
+        <div class="form-departments__form-field">
+          <input type="checkbox" id="department-nis" name="department" checked>
+          <label for="department-nis" tabindex="0">СНГ</label>
+        </div>
+        <div class="form-departments__form-field">
+          <input type="checkbox" id="department-europe" name="department">
+          <label for="department-europe" tabindex="0">Европа</label>
+        </div>
+      </form>
+    </div>
+    <div class="map" id="map">
+      <img src="images/bg-map@1x.jpg" alt="" srcset="">
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container footer__wrap">
+
+      <!-- Левая часть футера -->
+      <div class="footer__left">
+        <!-- Лого -->
+        <div class="footer__logo">
+          <a class="logo">
+            <img src="images/svg/logo.svg" alt="" srcset="">
+          </a>
+           <p class="footer__address">150015, г. Москва, ул. Московская, д. 32 Генеральная лицензия Банка
+            России №1050 &copy; Лига Банк, 2019</p>
+        </div>
+
+
+        <!-- Навигация -->
+        <nav class="footer__nav">
+          <ul>
+            <li><a href="#">Услуги</a></li>
+            <li><a href="#calc">Рассчитать кредит</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Задать вопрос</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__right">
+        <!-- Список телефонов -->
+        <ul class="footer__list-tel">
+          <li>
+            <img src="images/svg/mobile.svg" alt="" srcset="">
+            <a href="tel:*0904">0904
+
+            </a>
+            <p>Бесплатно для абонентов МТС, Билайн, Мегафон, Теле2</p>
+          </li>
+          <li>
+            <img src="images/svg/phone.svg" alt="" srcset="">
+            <a href="tel:88001112233">8 800 111 22 33
+            </a>
+            <p>Бесплатный для всех городов России</p>
+          </li>
+        </ul>
+
+        <!-- Социальная сеть -->
+        <div class="footer__social">
+          <ul class="social">
+            <li>
+              <a href="#" aria-label="facebook">
+                <img src="images/svg/icon-youtube.svg" alt="" srcset="">
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="instagram">
+                <img src="images/svg/icon-facebook.svg" alt="" srcset="">
+
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="twitter">
+                <img src="images/svg/icon-twitter.svg" alt="" srcset="">
+
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="youtube">
+                <img src="images/svg/icon-instagram.svg" alt="" srcset="">
+
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  <script src="script/tab.js"></script>
+  <script src="script/calk.js"></script>
+  <script src="script/swiper.js"></script>
+  <script src="script/dropdown.js"></script>  
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    
+
+</body>
+
+</html>

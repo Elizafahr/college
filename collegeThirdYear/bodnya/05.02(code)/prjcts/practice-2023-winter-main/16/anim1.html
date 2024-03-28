@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Animation</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+    strong, em {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <p>Lorem ipsum <strong>dolor sit amet</strong>, consectetur adipiscing elit. <em>Curabitur</em> quis risus sit amet est consequat consectetur.</p>
+  <p>Quisque ornare magna at dolor <strong>porttitor</strong> vitae sagittis libero vehicula.</p>
+
+  <script>
+    $(document).ready(function() {
+      $('strong, em').hover(
+        function() {
+            $(this).css({
+                'color': 'red', //цвет
+                'font-size': '+=2' //увеличение
+              });
+        },
+        function() {
+            $(this).css({
+              'color': '', //все обратно
+              'font-size': '' 
+            });
+        }
+      );
+    });
+  </script>
+</body>
+</html>

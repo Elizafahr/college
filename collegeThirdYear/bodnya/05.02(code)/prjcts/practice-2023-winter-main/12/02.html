@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Практическое задание 3.2 Добавление и удаление класса к элементу </title> 
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+        window.onload=function()
+        {
+            alert($('div').hasClass('logo'));
+            $('div').addClass('square');
+            $('div:even').addClass('font border');
+            $('div:last').removeClass('square');
+            $('div:last').addClass('squareGreen');
+        }
+    </script>
+    <style type="text/css">
+        .square
+        {
+            padding: 25px;
+            margin: 10px;
+            float: left;
+            background-color: red;
+        }
+        .border
+        {
+            border:3px dotted #00CC99;
+        }
+        .font
+        {
+           font-weight: bold;
+           color:white;
+        }
+        .squareGreen
+        {
+            padding: 25px;
+            margin: 10px;
+            float: left;
+            background-color: "green";
+        }
+    </style>
+</head>
+<body>
+  <div id="header">1</div>
+  <div id="logo">2</div>
+  <div>3</div>
+  <div class="header">4</div>
+  <div>5</div>
+</body>
+</html>

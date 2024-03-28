@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <title>Задание 4.11. События браузера </title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            // Обработка ошибки при загрузке изображения  
+            $('#dog')
+                .error(function () {
+                    alert('Изображение не загрузилось');
+                })
+                .attr("src", "dog.jpg");
+
+            // Определение размеров окна браузера с помощью метода resize  
+            $(window).resize(function (e) {
+                alert('Размеры окна браузера.\nПо ширине: ' + $(window).width() + '\nПо высоте: ' + $(window).height());
+            });
+
+            // Определение горизонтальной и вертикальной прокрутки div-элемента 
+            $('div').scroll(function () {
+                $('span b:eq(0)').text($(this).scrollTop());
+                $('span b:eq(1)').text($(this).scrollLeft());
+            });
+        } 
+    </script>
+    <style type="text/css">
+        div {
+            padding: 25px;
+            margin: 10px;
+            border: 2px solid #0C6;
+            float: left;
+            background-color: #FF9831;
+            width: 500px;
+            height: 100px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <span>
+        Вертикальная прокрутка составляет <b> 0</b> px<br>
+        Горизонтальная прокрутка составляет <b> 0</b> px<br>
+    </span>
+    <div>
+        11111111111111111111111111111111111111111111111111111111111111111111
+        1111111111
+        <img alt="Dog" id="dog" /><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><b r><br>
+    </div>
+</body>
+
+</html>

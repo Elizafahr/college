@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <title>Практическое задание 4.3 Делегирование событий</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            $('#One span').on('click', function () {
+                var text = $(this).text();
+                alert('Вы нажали на элемент с текстом - «' + text + '»');
+                $("<span>Тест</span>").insertAfter($("#One span:eq(2)"));
+            });
+            $('#Two').on('click', 'span', function () {
+                var text = $(this).text();
+                alert('Вы нажали на элемент с текстом - «' + text + '»');
+                $("<span>Тест</span>").insertAfter($("#Two span:eq(2)"));
+            });
+        } 
+    </script>
+    <style type="text/css">
+        #One {
+            height: auto;
+            width: 200px;
+            background-color: #CCE6E3;
+            border: 2px solid #09F;
+            font-size: 16px;
+            float: left;
+        }
+
+        #Two {
+            height: auto;
+            width: 200px;
+            background-color: #F8A998;
+            border: 2px solid #C00;
+            font-size: 16px;
+            float: left;
+            margin-left: 10px;
+        }
+
+        span,
+        h2 {
+            display: block;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="One">
+        <h2>Элемент 1</h2>
+        <span>Элемент 1 в элементе 1</span>
+        <span>Элемент 2 в элементе 1</span>
+        <span>Элемент 3 в элементе 1</span>
+    </div>
+    <div id="Two">
+        <h2>Элемент 2</h2>
+        <span>Элемент 1 в элементе 2</span>
+        <span>Элемент 2 в элементе 2</span>
+        <span>Элемент 3 в элементе 2</span>
+    </div>
+</body>
+
+</html>

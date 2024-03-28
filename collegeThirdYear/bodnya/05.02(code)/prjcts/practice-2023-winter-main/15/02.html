@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="windows‐1251">
+    <title>Задание 6_02. Изменение прозрачности элемента</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            $('#opacity').click(function () {
+                $(".opacityEl").fadeOut(500);
+            });
+            $('#opacity').dblclick(function () {
+                $(".opacityEl").fadeIn("slow", "linear");
+            });
+            $('#opacityTo').click(function () {
+                $(".hiddenDuration").fadeTo(400, 0.2);
+            });
+            $('#opacityTo').dblclick(function () {
+                $(".hiddenDuration").fadeTo("slow", 0.9);
+            });
+        } 
+    </script>
+    <style type="text/css">
+        #opacity,
+        .opacityEl,
+        #opacityTo,
+        .hiddenDuration {
+            padding: 25px;
+            margin: 10px;
+            border: 2px solid #0C6;
+            background-color: #FF9831;
+            width: 200px;
+        }
+
+        #cont {
+            padding: 25px;
+            margin: 10px;
+            background-color: #B6DADA;
+            width: 270px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='cont'> Скрытие элемента
+        <div id='opacity'>
+            Скрыть ‐ один щелчок<br> Показать ‐ два щелчка
+        </div>
+        <div class='opacityEl'>
+            Скрываемый/показываемый <br>
+            элемент
+        </div>
+    </div>
+    <div id='cont'> С анимацией
+        <div id='opacityTo'>
+            Скрыть ‐ один щелчок<br>
+            Показать ‐ два щелчка
+        </div>
+        <div class='hiddenDuration'>
+            Скрываемый/показываемый <br>
+            элемент
+        </div>
+    </div>
+</body>
+
+</html>

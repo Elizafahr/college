@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Практическое задание 3.7 добавление и удаление значений атрибута</title> 
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+           alert($('input:eq(2)').prop('value'));
+           $('input:eq(2)').prop('disabled','true');
+           $('input:first').prop({"disabled":true,"checked":true});
+           $('input:first').removeProp('value');
+        }
+    </script>
+</head>
+<body>
+ <form name="form1" method="post" action="">
+    <label>
+        <input type="checkbox" name="hobby" value="sport">спорт</label>
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="hobby" value="reading">чтение</label>
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="hobby" value="music" checked>музыка</label>
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="hobby" value="move">кино</label>
+    </label>
+    <br>
+</body>
+</html>

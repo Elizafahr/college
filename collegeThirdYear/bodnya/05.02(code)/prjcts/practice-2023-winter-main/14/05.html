@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="windows-1251">
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      $("div.one").find("p").css("border", "2px solid green");
+      $("div.two").find("p").css("border", "2px solid yellow");
+      $("div.three").find("p").addBack().css("border", "2px solid blue");
+    } 
+  </script>
+
+  <style type="text/css">
+    div {
+      padding: 25px;
+      margin: 10px;
+      float: left;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="one">
+    <p>Первый</p>
+  </div>
+  <div class="two">
+    <p>Второй</p>
+  </div>
+  <div class='three'>
+    <p>Третий</p>
+  </div>
+</body>
+
+</html>

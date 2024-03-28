@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <title>Практическое задание 5.2 Выбор элементов, лежащих после указанного</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+
+            $("#prev").click(function () {
+                $("div").eq(1).prev("div").css("background-color", "yellow");
+            })
+
+            $("#prevAll").click(function () {
+                $(".bottom").prevAll().css("background-color", "blue");
+            })
+
+            $("#prevUntil").click(function () {
+                $(".bottom").prevUntil(".top").css("background-color", "green");
+            })
+
+        } 
+    </script>
+
+    <style type="text/css">
+        div {
+            padding: 25px;
+            margin: 10px;
+            float: left;
+            background-color: red;
+        }
+
+        li {
+            padding: 25px;
+            margin: 10px;
+            float: left;
+            background-color: #3CC;
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <li class='top'>
+        <a href='#' title="Первая ссылка">1</a>
+    </li>
+    <div>
+        <a href='#' title="Вторая ссылка">2</a>
+    </div>
+    <div>
+        3
+    </div>
+    <div>
+        <i>4</i>
+    </div>
+    <div class="bottom">
+        5
+    </div>
+
+    <br>
+    <input type="button" id='prev' value="Метод prev()">
+    <input type="button" id='prevAll' value="Метод prevAll()">
+    <input type="button" id='prevUntil' value="Метод prevUntil()">
+
+</body>
+
+</html>

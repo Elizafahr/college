@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Практическое задание 3.1 Использование функции сss </title> 
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+        window.onload=function()
+        {
+            alert($('div').css('background-color'));
+            $('.header').css({'border':'3px solid green'});
+            $('.logo').css({'border':'3px solid yellow','color':'white'});
+            $("div").on("click",function()
+            
+            {
+                (this).css("background-color","blue");
+            });
+        }
+    </script>
+    <style type="text/css">
+        div{
+            padding: 25px;
+            margin: 10px;
+            float: left;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+   <div class="header">1</div>
+   <div class="logo">2</div>
+   <div>3</div>
+   <div class="header">4</div>
+   <div>5</div>
+</body>
+</html>

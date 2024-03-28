@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <title>Задание 4_10.Использование метода toggle</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            $('#header').toggle(
+                function () {
+                    alert("Вызов первой функции");
+                },
+                function () {
+                    alert("Вызов второй функции");
+                },
+                function () {
+                    alert("Вызов третьей функции");
+                }
+            );
+            $('div:gt(0)').click(function () {
+                $(this).toggle(1000, function () {
+                    alert("Элемент " + $(this).text() + " исчез");
+                    $(this).toggle(true);
+                    alert("Элемент " + $(this).text() + " и снова появился");
+                });
+            });
+
+            $('.header').hide();
+        } 
+    </script>
+    <style type="text/css">
+        div {
+            padding: 25px;
+            margin: 10px;
+            border: 2px solid #0C6;
+            float: left;
+            background-color: #FF9831;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='header'>1</div>
+    <div class='logo'>2</div>
+    <div>3</div>
+    <div class='header'>4</div>
+    <div>5</div>
+</body>
+
+</html>

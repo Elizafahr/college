@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <title>Практическое задание 4.1 Всплытие событий </title>
+    <style type="text/css">
+        #levelOne {
+            padding: 25px;
+            height: 200px;
+            width: 200px;
+            background-color: #C30;
+        }
+
+        #levelTwo {
+            padding: 25px;
+            height: 150px;
+            width: 150px;
+            background-color: #39C;
+        }
+
+        #levelThree {
+            padding: 25px;
+            height: 100px;
+            width: 100px;
+            background-color: #396;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="levelOne" onclick="alert('Верхний div')">
+        <div id="levelTwo" onclick="alert('Средний div')">
+            <div id="levelThree" onclick="alert('Нижний div')">
+                <a href='#' title="Cсылка " onclick="alert('Ссылка')">Ссылка</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

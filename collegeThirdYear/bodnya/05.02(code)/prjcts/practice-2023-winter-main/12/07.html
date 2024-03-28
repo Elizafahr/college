@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Практическое задание 3.7 добавление и удаление атрибута</title> 
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+           alert($('a').attr('title'));
+           $('div:eq(0)').attr('class','blue');
+           $('a:eq(1)').attr({"title":"ссылка два","class":"greenWhite"});
+           $('div:eq(3)').removeAttr('class');
+        }
+    </script>
+    <style type="text/css">
+        div
+        {
+            padding: 25px;
+            margin:10px;
+            float: left;
+            background-color: red;
+        }
+        .blue
+        {
+            background-color: #3CF;
+        }
+        .greenWhite
+        {
+            border:2px solid #FFF;
+        }
+    </style>
+</head>
+<body>
+  <div>
+    <a href="#" title="первая ссылка">1</a>
+  </div>
+  <div>
+    <a href="#" title="вторая ссылка">2</a>
+  </div>
+  <div>3</div>
+  <div class="blue">4</div>
+  <div>5</div>
+</body>
+</html>

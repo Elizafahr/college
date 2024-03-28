@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="windows-1251">
+  <title>Выбор элементов по классу</title>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      $("button").css('border', '2px solid red');
+      $("input[type='submit']").css('border', '2px solid green');
+      $("input[type='reset']").css('border', '2px solid yellow');
+      $("input[type='checkbox']").attr('checked', 'checked');
+      $("input[type='radio']").attr('disabled', 'disabled');
+      $("input[type='text']").val("Введите ваше имя").css('color', 'red');
+      $("input[type='password']").val("Введите ваш пароль").css('border', '2px solid red');
+      $("input[type='file']").css('border', '2px solid red');
+    } 
+  </script>
+</head>
+
+<body>
+  <input type="text"><br>
+  <input type="password"><br>
+  <input type="checkbox" value="sport">Спорт<br>
+  <input type="checkbox" value="books">Чтение<br>
+  <input type="checkbox" value="cinema">Кинопросмотры<br>
+  <input type="radio" name="gender" value="male">Мужской<br>
+  <input type="radio" name="gender" value="female" id="gender_1">Женский<br>
+  <input type="radio" name="gender" value="unknown" id="gender_2">Не указывать<br>
+  <input name="screen" type="file"><br>
+  <input type="button" value="Кнопка">
+  <input type="submit" value="Кнопка отправить">
+  <input type="reset" value="Кнопка очистить">
+</body>
+
+</html>

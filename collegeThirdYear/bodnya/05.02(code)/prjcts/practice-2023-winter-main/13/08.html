@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <title>Практическое задание 4.8 События мыши</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            $('#One').mousedown(function (event) {
+                $('#eventText').css('color', 'red').text('Вы нажали ' + event.which + ' кнопку. В координатах Х:' + event.pageX + ' и Y: ' + event.pageY)
+            })
+            $('#One').mouseup(function (event) {
+                $('#eventText').css('color', 'green').text('Вы отпустили ' + event.which + ' кнопку. В координатах Х:' + event.pageX + ' и Y: ' + event.pageY)
+            })
+        } 
+    </script>
+    <style type="text/css">
+        #One {
+            height: auto;
+            width: 200px;
+            background-color: #CCE6E3;
+            border: 2px solid #09F;
+            font-size: 16px;
+            float: left;
+        }
+
+        span,
+        h2 {
+            display: block;
+            margin: 10px;
+        }
+
+        div {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="One">
+        <h2>Элемент 1</h2>
+        <span>Элемент 1 в элементе 1</span>
+        <span>Элемент 2 в элементе 1</span>
+        <span>Элемент 3 в элементе 1</span>
+    </div>
+    <div id="eventText"></div>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="windows-1251">
+
+  <title>Выбор элементов по классу</title>
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+  <script type="text/javascript">
+
+    window.onload = function () {
+      $('body *').css('border', '2px solid green');
+      $('#header').css('backgroundColor', 'green');
+      $('div').css('color', 'red').css('fontWeight', 'bold');
+      $('span').css('color', '#408080').css('fontStyle', 'italic');
+
+    } 
+  </script>
+  <style type="text/css">
+    div,
+    span {
+
+      display: block;
+      padding: 25px;
+      margin: 10px;
+      float: left;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">1</div><span>2</span>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+</body>
+<!doctype html>
+<html>
+<head>
+  <meta charset="windows-1251">
+  <title>Выбор элементов по классу</title>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript">
+
+    window.onload = function () {
+      $('body *').css('border', '2px solid green');
+      $('#header').css('backgroundColor', 'green');
+      $('div').css('color', 'red').css('fontWeight', 'bold');
+      $('span').css('color', '#408080').css('fontStyle', 'italic');
+
+    } 
+  </script>
+  <style type="text/css">
+    div,
+    span {
+
+      display: block;
+      padding: 25px;
+      margin: 10px;
+      float: left;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">1</div>
+  <span>2</span>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+</body>

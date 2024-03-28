@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+    #targetDiv {
+        background-color: lightblue;
+        padding: 10px;
+        margin-top: 10px;
+    }
+</style>
+<body>
+
+    <button id="toggleButton">Скрыть/Показать</button>
+    <div id="targetDiv">
+        Содержимое элемента для изменения прозрачности
+    </div>
+
+<script>
+    $(document).ready(function() {
+        $("#toggleButton").click(function() {
+            $("#targetDiv").fadeToggle();
+        });
+    });
+</script>
+</body>
+</html>

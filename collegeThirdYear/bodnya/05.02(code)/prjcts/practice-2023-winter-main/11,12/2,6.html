@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="windows-1251">
+  <title>Выбор элементов по классу</title>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript">
+
+    window.onload = function () {
+
+      $('body tr#header:eq(0)').css('fontSize', '20px').css('fontWeight', 'bold')
+
+      $('#mail tr:even').css('backgroundColor', '#cccccc')
+
+      $("#mail tr:odd").css('backgroundColor', '#E6E6E6')
+
+    } 
+  </script>
+</head>
+
+<body>
+  <table width="297" border="0" id="mail">
+    <tr id="header">
+      <td width="35"><input type="checkbox" onClick="sel()" /></td>
+      <td width="109">Тема </td>
+      <td width="34">Дата</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" /></td>
+      <td>Привет</td>
+      <td>20 марта</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" checked="checked" /></td>
+      <td>Как дела</td>
+      <td>19
+        марта</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" /></td>
+      <td>Встреча</td>
+      <td>18 марта</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" /></td>
+      <td>Пока</td>
+      <td>17 марта</td>
+    </tr>
+  </table>
+</body>
+
+</html>

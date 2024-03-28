@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="windows-1251">
+    <title>Практическое задание 4.4 Извлечение данных, переданных событием</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            $("a").on("click", { value: "Ссылка" }, myF);
+            function myF(event) {
+                alert("Это " + event.data.value);
+                alert("Положение курсора по X: " + event.pageX + " \nПоложение курсора по Y: " + event.pageY)
+            };
+        } 
+    </script>
+</head>
+
+<body>
+    <a href="#">Ссылка</a>
+</body>
+
+</html>

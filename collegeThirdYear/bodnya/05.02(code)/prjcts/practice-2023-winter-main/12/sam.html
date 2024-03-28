@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> самостоятельная работа</title> 
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+       window.onload=function()
+       {
+   $('.checkbox').click(function()
+   {
+     $(this).toggleClass('selected');
+  });
+
+   $('#addRow').click(function() 
+  {
+     var newRow = $('<tr></tr>');
+    var checkboxCell = $('<td><input type="checkbox" class="checkbox"></td>');
+     checkboxCell.find('.checkbox').click(function() 
+    {
+      $(this).toggleClass('selected');
+    });
+    newRow.append(checkboxCell);  
+    newRow.append('<td>новая строка 1</td>');  
+    newRow.append('<td>новая строка  2</td>');  
+    newRow.append('<td>новая строка  3</td>'); 
+     $('#sr').append(newRow);
+  });
+};
+</script>
+</head>
+<body>
+    <table id="sr">
+        <tr>
+          <td><input type="checkbox" class="checkbox"></td>
+          <td>текст 1</td>
+          <td>текст 2</td>
+          <td>текст 3</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="checkbox"></td>
+          <td>текст 4</td>
+          <td>текст 5</td>
+          <td>текст 6</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="checkbox"></td>
+          <td>текст 7</td>
+          <td>текст 8</td>
+          <td>текст 9</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="checkbox"></td>
+          <td>текст 10</td>
+          <td>текст 11</td>
+          <td>текст 12</td>
+        </tr>
+      </table>
+      
+      <button id="addRow">добавить строку</button>
+</body>
+</html>

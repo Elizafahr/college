@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="windows-1251">
+  <title>Выбор элементов по классу</title>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      $('header:not(.content header)').css('background-color', '#95AFC1');
+      $('header:not(body > header)').css('background-color', 'red');
+    } 
+  </script>
+</head>
+
+<body>
+  <h1>Заголовок первого уровня</h1>
+  <div class="content">
+    <h2>Заголовок второго уровня</h2>
+    <h3>Заголовок третьего уровня</h3>
+  </div>
+  <h4>Заголовок четвертого уровня</h4>
+</body>
+
+</html>

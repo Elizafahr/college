@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="windows-1251">
+  <title>Практическое задание 4.7 События мыши</title>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      $("#One").dblclick(function (event) {
+        $('#eventText').text('Вы два раза щелкнули на элемент')
+      })
+      $("#One").click(function (event) {
+        $('#eventText').text('Вы один раз щелкнули на элемент')
+      })
+      $("#One").hover(
+        function (event) {
+
+          $('#eventText').text('Вы навели мышь на элемент')
+        },
+        function (event) {
+
+          $('#eventText').text('Вы убрали мышь с элемента')
+
+        }
+
+      )
+    } 
+  </script>
+  <style type="text/css">
+    #One {
+      height: auto;
+      width: 200px;
+      background-color: #CCE6E3;
+      border: 2px solid #09F;
+      font-size: 16px;
+      float: left;
+    }
+
+    #Two {
+      height: auto;
+      width: 200px;
+      background-color: #F8A998;
+      border: 2px solid #C00;
+      font-size: 16px;
+      float: left;
+      margin-left: 10px;
+    }
+
+    span,
+    h2 {
+      display: block;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="One">
+    <h2>Элемент 1</h2>
+    <span>Элемент 1 в элементе 1</span>
+    <span>Элемент 2 в элементе 1</span>
+    <span>Элемент 3 в элементе 1</span>
+  </div>
+  <div id="Two">
+    <h2>Элемент 2</h2>
+    <span>Элемент 1 в элементе 2</span>
+    <span>Элемент 2 в элементе 2</span>
+    <span>Элемент 3 в элементе 2</span>
+  </div>
+  <div id="eventText"></div>
+</body>
+
+</html>
