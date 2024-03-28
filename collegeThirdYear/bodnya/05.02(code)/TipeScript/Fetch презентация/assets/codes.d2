@@ -1,0 +1,78 @@
+grid-columns: 5
+grid-rows: 6 
+grid-gap: 0
+
+classes: {
+  info: {
+    style: {
+      fill: lightblue
+    }
+  }
+  
+  success: {
+  style: {
+    fill: lightgreen
+  }    
+}
+
+ redirect: {
+  style: {
+    fill: lightgray
+  }  
+}
+
+client_error: {
+  style: {
+    fill: orange
+  }
+
+}
+
+
+server_error: {
+  style: {
+    fill: "#FF7276"
+  }
+
+}
+
+
+}
+
+"INFO (1.x.x)"
+100 - Continue - Игнорирование ответа
+101 - Switch protocols - Изменение протокола сервера
+102 - Processing - Обработка, ответ еще не пришел 
+103 - Early hints - Предзагрузка заголовков страницы
+104 - Connection Dropped - Обрыв соединения
+
+"SUCCESS (2.x.x)"
+200 - OK - ответ запрос успешен, ответ получен
+201 - Created - объект добавлен (работа с БД)
+202 - Accepted - Запрос пришел, в ожидании обработки 
+204 - No Content - Запрос пришел успешно, но пустой
+205 - Reset Content - Запрос на перезагрузку
+"REDIRECT (3.x.x)"
+300 - Multiple Choises - Несколько вариантов переадресации	
+302 - Found - адрес перемещен (дана другая ссылка)
+305 - Not Modified - условная переадресация (метод HEAD)
+307 - Permanent Redirect - адрес перемещен
+308 - Temporary Redirect - адрес перемещен (временно)
+"CLIENT ERROR (4.x.x)"
+400 - Bad Request - Ошибка в запросе
+401 - Unauthorized - Не авторизован (нет прав доступа)
+403 - Forbidden - Доступ запрещен (используйте VPN)
+404 - Not Found - Ресурс не найден
+405 - Method Not Allowed - Метод запроса запрещен
+"SERVER ERROR (5.x.x)"
+500 - Internal Server Error - Внутреняя ошибка на сервере
+501 - Not implemented - Метод не реализован на сервере
+503 - Service Unavalable - Сервер недоступен
+504 - Gateway Timeout - Время на ожидание ответа истекло
+505 - HTTP Version Not Supported - Неподдерживаемая версия протокола HTTP
+
+1*.class: info
+2*.class: success
+3*.class: redirect
+4*.class: client_error
+5*.class: server_error
