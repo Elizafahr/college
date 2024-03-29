@@ -1,0 +1,683 @@
+@font-face {
+    font-family: 'Inter';
+    src: url("../media/fonts/Inter-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Inter-bold';
+    src: url("../media/fonts/Inter-Bold.ttf");
+}
+
+@font-face {
+    font-family: 'Inter-mid';
+    src: url("../media/fonts/Inter-Medium.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 32px;
+    font-family: Inter-bold;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 18px;
+}
+
+.container {
+    max-width: 1200px !important;
+    margin: 0 auto;
+}
+
+/*navigation*/
+.header_nav .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header_nav .nav-btns {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    padding: 0 55px;
+}
+
+.header_nav .nav-btns .nav-btn a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+ }
+
+.rigth-area-btns {
+    min-width: max-content;
+    display: flex;
+    gap: 20px;
+}
+
+/*header-content*/
+.header_content {
+    background-color: rgb(30, 101, 255);
+    color: white;
+    display: flex;
+    /* padding: 80px 60px; */
+    border-radius: 25px;
+    margin: 80px auto;
+    max-width: 1200px !important;
+
+}
+.header_content a, .about a{
+    text-decoration: none;
+
+}
+
+.left-area_header-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 85px 60px;
+
+}
+
+.img-position {
+    position: relative;
+    min-width: 400px;
+
+}
+
+.header_content img {
+    position: absolute;
+    right: 15px;
+    top: -90px;
+    height: 570px;
+}
+
+.subtitle {
+    font-size: 20px;
+}
+
+.btn {
+    color: black;
+    font-weight: 600;
+    background-color: rgb(255, 211, 67);
+    padding: 15px 20px;
+    max-width: max-content;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    color: black;
+    font-weight: 600;
+    background-color: rgb(231, 181, 17);
+    padding: 15px 20px;
+    max-width: max-content;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/*Блок - Большой выбор для всех питомцев*/
+.choosePets {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.first-row-choose-pets {
+    display: flex;
+    justify-content: space-between;
+}
+
+.more-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.more-btn:hover {
+    color: rgb(30, 101, 255);
+}
+
+.choosePets-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.choosePets-item {
+    background-color: rgb(30, 101, 255);
+    border-radius: 25px;
+    padding: 180px 15px 15px 15px;
+    border: 1px solid rgb(214, 214, 214);
+}
+
+.choosePets-item:hover {
+    scale: 1.05;
+}
+
+.cat-choosePets {
+    background-image: url("../media/img/4.jpg");
+    background-size: cover;
+}
+
+.dog-choosePets {
+    background-image: url("../media/img/5.jpg");
+    background-size: cover;
+
+}
+
+.citty-pupppy-choosePets {
+    background-image: url("../media/img/6.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.other-choosePets {
+    background-image: url("../media/img/7.jpg");
+    background-size: cover;
+    background-position: center center;
+
+}
+
+.choosePets-item-title {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+/*about*/
+.about {
+    background-image: url("../media/img/8.jpg");
+    background-size: cover;
+    background-position: center center;
+    border-radius: 25px;
+    color: white;
+    margin: 50px auto;
+}
+
+.text-left-about {
+    padding: 85px 60px;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.text-left-about h2 {
+    font-family: "inter-mid";
+}
+
+/*care - advantages*/
+.care {
+    background-color: rgb(30, 101, 255);
+    border-radius: 25px;
+    color: white;
+    text-align: center;
+    padding: 85px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin:100px auto 50px auto;
+
+}
+
+.advantages-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    padding: 0 60px;
+}
+
+.advantages-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.advantages-item svg {
+    height: 45px;
+    width: 45px;
+}
+
+/*about-company*/
+
+.about-company {
+    display: grid;
+    grid-template-columns: 50% auto;
+    gap: 60px;
+    padding: 50px 0;
+    height: max-content;
+}
+
+.about-company-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: max-content;
+
+}
+
+.about-company img {
+    height: 100%;
+}
+
+
+/*contact*/
+
+
+.contact {
+    background-color: rgb(224, 237, 255);
+    display: flex;
+    justify-content: center;
+    padding: 85px 0;
+    text-align: center;
+    border-radius: 25px;
+
+}
+
+.contact-content {
+    max-width: 80%;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+
+}
+
+.contact form {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 30px 0 0 0;
+
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: max-content;
+    gap: 10px;
+}
+
+.input-box label {
+    font-weight: bold;
+}
+
+.input-box input {
+    border: 1px solid gray;
+    padding: 13px 20px;
+    font-size: 16px;
+    min-width: 450px;
+    background-color: transparent;
+    border-radius: 5px;
+
+}
+
+.input-box input::placeholder {
+    color: gray;
+}
+
+
+.radio-block-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 480px;
+
+}
+
+.radio {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkboxes {
+    padding: 20PX 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+    max-width: 480px;
+}
+
+.checkboxes div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 15px;
+}
+
+.checkboxes label {
+    margin: 0;
+    padding: 0;
+}
+
+input[type='checkbox']:checked {
+    background-color: rgb(12, 79, 224);
+}
+
+input[type='checkbox']:checked:after {
+    content: '\2713';
+    color: white;
+}
+
+input[type='checkbox'] {
+    display: table-cell;
+    vertical-align: middle;
+    min-width: 20px !important;
+    height: 20px !important;
+    appearance: none;
+    border-radius: 10%;
+    border: 1px solid rgb(12, 79, 224);
+    box-shadow: none;
+    font-size: 1em;
+    text-align: center;
+
+}
+
+.contact-radio label {
+    padding: 0 10px;
+}
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: rgb(224, 237, 255);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid rgb(12, 79, 224);
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: rgb(12, 79, 224);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+.contact button {
+    border: none;
+}
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    align-items: center;
+}
+
+.footer p {
+    font-size: 16px;
+}
+
+.footer svg:hover {
+    fill: rgb(12, 79, 224);
+}
+
+.footer a {
+    color: gray;
+}
+
+.footer a:hover {
+    color: rgb(12, 79, 224);
+}
+
+
+
+
+/*product*/
+.product-block {
+    display: grid;
+    grid-template-columns: 35% 1fr;
+    padding: 50px 0 0 0;
+}
+
+.product-description-block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.product-photo {
+    width: min-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+
+}
+
+.product-first-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.rewiews-block {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.rewiews-block a {
+    color: black;
+}
+
+.product-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.product-amount,
+.product-weigth {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.product-weigth-btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.product-weigth-btn {   
+    background-color: white;
+  padding: 10px 20px;    
+  border: 1px solid gray;
+  border-radius: 3px;
+
+}
+.product-weigth-btn:hover {   
+  border: 1px solid rgb(12, 79, 224);
+
+}
+.product-weigth-btns .active{  
+  border: 1px solid rgb(12, 79, 224);
+}
+.num-input-amount{
+    display: flex;
+    gap: 5px;
+    width: max-content;
+}
+.num-input-amount button{
+   border: none;
+   background-color: transparent;
+   font-size: 18px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 50px;
+
+}
+#amountProduct{
+    width: max-content;
+    max-width: 80px;
+    text-align: center;
+    padding: 8px 5px;    
+    margin: 1px 5px;
+}
+
+.product-delivery-options{
+    display: flex;
+    gap: 30px;
+}
+.product-delivery-option{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 5px;
+}
+.name-dlivery{
+    display: flex;
+    justify-content: space-between;
+}
+.product-delivery-option .flex{
+    display: flex;
+    gap: 15px;
+  }
+ .product-delivery-option .flex p{
+   color: gray;
+   font-size: 14px;
+ }
+ .product-delivery-option label{
+    padding: 0 10px;
+ } 
+ .product-delivery-option input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid rgb(12, 79, 224);
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: rgb(12, 79, 224);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+
+.count-area{
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    
+}
+
+.count-area button, .count-area input{
+    width: 100%;
+    height: 50px;
+    margin: 0;
+}
+.count-area input{
+    width: 100%;
+    height:48px;
+    margin: 0;
+    font-size: 20px;
+    padding: 0 15px;
+  }
+    
+.count-area button {
+   border: none;
+}
+
+.descr-btns-area{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.descr-btns{
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+.descr-btn{
+    padding: 5px 10px;
+    border: 0;
+    background-color: transparent;
+     border-radius: 5px;
+     cursor: pointer;
+}
+.descr-btns-area .active{
+    background-color: rgb(211, 223, 255);
+    color: rgb(12, 79, 224);
+}
+
+.descr-btns-area ul{
+    padding: 0;
+    margin-left: 20px;
+}
+
+.error{
+    color: red;
+    display: block;
+}
+
+.product-block .btn{
+    scale: 1;
+    margin: 0;
+}
