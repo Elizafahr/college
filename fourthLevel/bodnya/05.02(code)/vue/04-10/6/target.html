@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <a href="index.html">back</a>
+    <div id="app">
+      <h1>Данные пользователей:</h1>
+      <ul>
+          <li v-for="(value, key) in userData" :key="key">
+              {{ key }}: {{ value.name }} - {{ value.city }}
+              
+          </li>
+      </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="user.js"></script>
+  </body>
+</html>

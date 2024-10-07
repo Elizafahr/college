@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="first">
+        <h1>Задача 1</h1>
+        <ul>
+          <li>
+            <a id="link1" href="#" class="custom-class" prevent-modifier
+              >Первая ссылка</a
+            >
+          </li>
+          <li>
+            <a id="link3" href="#" class="custom-class">Третья ссылка</a>
+          </li>
+          <li>
+            <a id="link2" href="#" class="custom-class" prevent-modifier
+              >Вторая ссылка</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="sec">
+        <h1>Задача 2</h1>
+        <label>Показать</label>
+        <input type="radio" @click="fClick" name="group" id="show" checked />
+        <label>Скрыть</label>
+        <input type="radio" @click="fClick" name="group" id="hide" />
+        <div id="bl">
+          <div
+            v-for="(quote, index) in quotes"
+            :key="index"
+            class="quote-container"
+          >
+            <p>{{ quote.text }}</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
