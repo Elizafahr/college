@@ -1,0 +1,146 @@
+-- Создание базы данных
+CREATE DATABASE theatre_database;
+
+-- Использование базы данных
+USE theatre_database;
+
+-- Создание таблицы Users
+CREATE TABLE Users (
+  user_id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  role ENUM('Посетитель', 'Клиент', 'Администратор') DEFAULT 'Посетитель',
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  phone VARCHAR(20)
+);
+
+-- Создание таблицы Theatres
+CREATE TABLE Theatres (
+  theatre_id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) UNIQUE NOT NULL,
+  address VARCHAR(255),
+  phone VARCHAR(20),
+  website VARCHAR(255),
+  description TEXT
+);
+
+-- Создание таблицы Events
+CREATE TABLE Events (
+  event_id INT AUTO_INCREMENT PRIMARY KEY,
+  theatre_id INT NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  start_date DATE NOT NULL,
+  start_time TIME NOT NULL,
+  end_date DATE,
+  end_time TIME,
+  poster VARCHAR(255),
+  FOREIGN KEY (theatre_id) REFERENCES Theatres(theatre_id)
+);
+
+-- Создание таблицы Seats
+CREATE TABLE Seats (
+  seat_id INT AUTO_INCREMENT PRIMARY KEY,
+  event_id INT NOT NULL,
+  row INT NOT NULL,
+  seat_number INT NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  is_available BOOLEAN DEFAULT TRUE,
+  FOREIGN KEY (event_id) REFERENCES Events(event_id)
+);
+
+-- Создание таблицы Bookings
+CREATE TABLE Bookings (
+  booking_id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  event_id INT NOT NULL,
+  booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  total_price DECIMAL(10,2) NOT NULL,
+  status ENUM('Ожидание', 'Подтверждено', 'Отменено') DEFAULT 'Ожидание',
+  FOREIGN KEY (user_id) REFERENCES Users(user_id),
+  FOREIGN KEY (event_id) REFERENCES Events(event_id)
+);
+
+-- Создание таблицы Tickets
+CREATE TABLE Tickets (
+  ticket_id INT AUTO_INCREMENT PRIMARY KEY,
+  booking_id INT NOT NULL,
+  seat_id INT NOT NULL,
+  is_used BOOLEAN DEFAULT FALSE,
+  FOREIGN KEY (booking_id) REFERENCES Bookings(booking_id),
+  FOREIGN KEY (seat_id) REFERENCES Seats(seat_id)
+);
+
+-- Создание таблицы Reviews
+CREATE TABLE Reviews (
+  review_id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  event_id INT NOT NULL,
+  rating INT NOT NULL,
+  comment TEXT,
+  FOREIGN KEY (user_id) REFERENCES Users(user_id),
+  FOREIGN KEY (event_id) REFERENCES Events(event_id)
+);
+
+-- Создание таблицы Logs
+CREATE TABLE Logs (
+  log_id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  action VARCHAR(255) NOT NULL,
+  date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  details TEXT,
+  FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
+-- Создание таблицы Favorites
+CREATE TABLE Favorites (
+  favorite_id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  event_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES Users(user_id),
+  FOREIGN KEY (event_id) REFERENCES Events(event_id)
+);
+
+-- Создание таблицы News
+CREATE TABLE News (
+  news_id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  content TEXT,
+  image VARCHAR(255),
+  published_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  author_id INT NOT NULL,
+  theatre_id INT,
+  FOREIGN KEY (author_id) REFERENCES Users(user_id),
+  FOREIGN KEY (theatre_id) REFERENCES Theatres(theatre_id)
+);
+
+-- Добавление данных в таблицу Users (для примера)
+INSERT INTO Users (username, password, email, role, first_name, last_name, phone) VALUES 
+('admin', '$2y$10$jW.0W3pY.w9l.N2wZ7F3uO.R37/Qk7hL5c/C3oZq9u/q09d.x/q', 'admin@example.com', 'Администратор', 'Администратор', 'Системы', '+79991234567'),
+('user1', '$2y$10$jW.0W3pY.w9l.N2wZ7F3uO.R37/Qk7hL5c/C3oZq9u/q09d.x/q', 'user1@example.com', 'Клиент', 'Иван', 'Иванов', '+79991234568');
+
+-- Добавление данных в таблицу Theatres (для примера)
+INSERT INTO Theatres (name, address, phone, website, description) VALUES
+('Большой театр', 'Театральная площадь, 1', '+74951234567', 'www.bolshoi.ru', 'Знаменитый театр оперы и балета'),
+('Малый театр', 'Театральная площадь, 2', '+74951234568', 'www.maly.ru', 'Классический драматический театр');
+
+-- Добавление данных в таблицу Events (для примера)
+INSERT INTO Events (theatre_id, title, description, start_date, start_time, end_date, end_time, poster) VALUES
+(1, 'Лебединое озеро', 'Балет в двух действиях', '2024-03-01', '19:00:00', '2024-03-01', '21:30:00', 'https://example.com/poster1.jpg'),
+(2, 'Вишневый сад', 'Пьеса в четырех действиях', '2024-03-05', '19:00:00', '2024-03-05', '21:00:00', 'https://example.com/poster2.jpg');
+
+-- Добавление данных в таблицу Seats (для примера)
+INSERT INTO Seats (event_id, row, seat_number, price, is_available) VALUES
+(1, 1, 1, 1000, TRUE),
+(1, 1, 2, 1000, TRUE),
+(1, 2, 1, 800, TRUE),
+(1, 2, 2, 800, TRUE),
+(2, 1, 1, 500, TRUE),
+(2, 1, 2, 500, TRUE);
+
+-- Добавление данных в таблицу News (для примера)
+INSERT INTO News (title, content, author_id, theatre_id) VALUES
+('Большой театр объявляет новый сезон', 'В новом сезоне зрителей ждет множество премьер и гастролей...', 1, 1),
+('Малый театр представляет премьеру', 'Новая постановка пьесы...', 1, 2);
