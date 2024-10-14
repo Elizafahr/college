@@ -1,1 +1,353 @@
+Создание миграцийphp artisan make:migration create_users_table
 
+php artisan make:migration create_theatres_table
+php artisan make:migration create_events_table
+php artisan make:migration create_seats_table
+php artisan make:migration create_bookings_table
+php artisan make:migration create_tickets_table
+php artisan make:migration create_reviews_table
+php artisan make:migration create_logs_table
+php artisan make:migration create_favorites_table
+php artisan make:migration create_news_table
+
+
+
+Заполнение миграций
+
+Миграция создания таблицы пользователей
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('username')->unique()->nullable(false);
+            $table->string('password')->nullable(false);
+            $table->string('email')->unique()->nullable(false);
+            $table->enum('role', ['Посетитель', 'Клиент', 'Администратор'])->default('Посетитель');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('phone')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('users');
+    }
+};
+
+--users  
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\User;
+use Illuminate\Database\Seeder;
+
+class UsersTableSeeder extends Seeder
+{
+    public function run()
+    {
+        User::create([
+            'username' => 'admin',
+            'password' => bcrypt('password'),
+            'email' => 'admin@example.com',
+            'role' => 'Администратор',
+            'first_name' => 'Администратор',
+            'last_name' => 'Системы',
+            'phone' => '+79991234567'
+        ]);
+
+        User::create([
+            'username' => 'user1',
+            'password' => bcrypt('password'),
+            'email' => 'user1@example.com',
+            'role' => 'Клиент',
+            'first_name' => 'Иван',
+            'last_name' => 'Иванов',
+            'phone' => '+79991234568'
+        ]);
+    }
+}
+
+Миграция создания таблицы театров
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('theatres', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique()->nullable(false);
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('website')->nullable();
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('theatres');
+    }
+};
+
+Миграция создания таблицы мероприятий
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('events', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('theatre_id')->constrained()->onDelete('cascade');
+            $table->string('title')->nullable(false);
+            $table->text('description')->nullable();
+            $table->date('start_date')->nullable(false);
+            $table->time('start_time')->nullable(false);
+            $table->date('end_date')->nullable();
+            $table->time('end_time')->nullable();
+            $table->string('poster')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('events');
+    }
+};
+
+Миграция создания таблицы мест
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('seats', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('event_id')->constrained()->onDelete('cascade');
+            $table->integer('row')->nullable(false);
+            $table->integer('seat_number')->nullable(false);
+            $table->decimal('price', 10, 2)->nullable(false);
+            $table->boolean('is_available')->default(true);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('seats');
+    }
+};
+
+Миграция создания таблицы бронирований
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('bookings', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('event_id')->constrained()->onDelete('cascade');
+            $table->timestamp('booking_date')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->decimal('total_price', 10, 2)->nullable(false);
+            $table->enum('status', ['Ожидание', 'Подтверждено', 'Отменено'])->default('Ожидание');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('bookings');
+    }
+};
+
+Миграция создания таблицы билетов
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('tickets', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('booking_id')->constrained()->onDelete('cascade');
+            $table->foreignId('seat_id')->constrained()->onDelete('cascade');
+            $table->boolean('is_used')->default(false);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('tickets');
+    }
+};
+
+
+Миграция создания таблицы отзывов
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('reviews', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('event_id')->constrained()->onDelete('cascade');
+            $table->integer('rating')->nullable(false);
+            $table->text('comment')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('reviews');
+    }
+};
+
+Миграция создания таблицы избранных
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('favorites', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('event_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('favorites');
+    }
+};
