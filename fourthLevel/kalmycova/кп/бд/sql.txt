@@ -1,8 +1,4 @@
--- Создание базы данных
-CREATE DATABASE theatre_database;
-
--- Использование базы данных
-USE theatre_database;
+ 
 
 -- Создание таблицы Users
 CREATE TABLE Users (
@@ -84,16 +80,7 @@ CREATE TABLE Reviews (
   FOREIGN KEY (event_id) REFERENCES Events(event_id)
 );
 
--- Создание таблицы Logs
-CREATE TABLE Logs (
-  log_id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT NOT NULL,
-  action VARCHAR(255) NOT NULL,
-  date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  details TEXT,
-  FOREIGN KEY (user_id) REFERENCES Users(user_id)
-);
-
+ 
 -- Создание таблицы Favorites
 CREATE TABLE Favorites (
   favorite_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -110,9 +97,9 @@ CREATE TABLE News (
   content TEXT,
   image VARCHAR(255),
   published_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  author_id INT NOT NULL,
+  user_id INT NOT NULL,
   theatre_id INT,
-  FOREIGN KEY (author_id) REFERENCES Users(user_id),
+  FOREIGN KEY (user_id) REFERENCES Users(user_id),
   FOREIGN KEY (theatre_id) REFERENCES Theatres(theatre_id)
 );
 
@@ -141,6 +128,6 @@ INSERT INTO Seats (event_id, row, seat_number, price, is_available) VALUES
 (2, 1, 2, 500, TRUE);
 
 -- Добавление данных в таблицу News (для примера)
-INSERT INTO News (title, content, author_id, theatre_id) VALUES
-('Большой театр объявляет новый сезон', 'В новом сезоне зрителей ждет множество премьер и гастролей...', 1, 1),
-('Малый театр представляет премьеру', 'Новая постановка пьесы...', 1, 2);
+INSERT INTO News (title, content,  user_id, theatre_id) VALUES
+('Большой театр объявляет новый сезон', 'В новом сезоне зрителей ждет множество премьер и гастролей...',  1, 1),
+('Малый театр представляет премьеру', 'Новая постановка пьесы...',  1, 2);
